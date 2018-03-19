@@ -5,7 +5,12 @@ import spock.lang.Specification
 
 /**
  * Example 1:
- * simple object without dependencies: side-effect free SUT (system under test)
+ *
+ * TotalAmountCalculator calculates the total amount of turnover for a given list of Orders
+ *
+ * - no dependencies
+ * - side effect free
+ * - data driven test
  *
  */
 class TotalAmountCalculatorSpec extends Specification {
