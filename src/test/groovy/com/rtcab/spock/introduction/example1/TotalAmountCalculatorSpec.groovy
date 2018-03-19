@@ -3,6 +3,11 @@ package com.rtcab.spock.introduction.example1
 import spock.lang.Specification
 
 
+/**
+ * Example 1:
+ * simple object without dependencies: side-effect free SUT (system under test)
+ *
+ */
 class TotalAmountCalculatorSpec extends Specification {
 
 
