@@ -6,6 +6,6 @@ class Customer {
 
     @Override
     String toString() {
-        name
+        name + " (" + orders*.amount.sum() + ")"
     }
 }

@@ -1,6 +1,8 @@
 package com.rtcab.spock.introduction.example2
 
+import spock.lang.Shared
 import spock.lang.Specification
+import spock.lang.Unroll
 
 
 /**
@@ -14,19 +16,23 @@ import spock.lang.Specification
  *
  */
 class TopThreeCustomerFinderSpec extends Specification {
+    @Shared
+    private Customer moe = customerWithTurnover("Moe", 100)
+    @Shared
+    private Customer edna = customerWithTurnover("Edna", 110)
+    @Shared
+    private Customer abu = customerWithTurnover("Abu", 120)
+    @Shared
+    private Customer milhouse = customerWithTurnover("Milhouse", 175)
+    @Shared
+    private Customer poorMario = customerWithTurnover("Mario", 5)
 
 
-    def 'TopThreeCustomerFinderSpec sorts customers by total turnover'() {
+    def 'TopThreeCustomerFinderSpec returns only three customers'() {
         given:
         def sut = new TopThreeCustomerFinder()
 
         and:
-        def poorMario = customerWithTurnover("Mario", 5)
-
-        def abu = customerWithTurnover("Abu", 120)
-        def moe = customerWithTurnover("Moe", 110)
-        def edna = customerWithTurnover("Edna", 100)
-
         def customers = [moe, edna, abu, poorMario]
 
         when:
@@ -34,9 +40,27 @@ class TopThreeCustomerFinderSpec extends Specification {
 
         then:
         topThreeCustomers.size() == 3
+    }
 
-        and:
-        topThreeCustomers == [abu, moe, edna]
+
+    @Unroll
+    def "TopThreeCustomerFinder takes #expectedResult from #allCustomers"() {
+        given:
+        def sut = new TopThreeCustomerFinder()
+
+        when:
+        def topThreeCustomers = sut.findTopCustomers(allCustomers)
+
+        then:
+        topThreeCustomers == expectedResult
+
+        where:
+        allCustomers                || expectedResult
+        [moe, edna, abu, poorMario] || [abu, edna, moe]
+        [moe, edna, abu, milhouse]  || [milhouse, abu, edna]
+        [moe, edna, abu]            || [abu, edna, moe]
+        [moe, edna]                 || [edna, moe]
+
     }
 
     private Customer customerWithTurnover(String name, int totalTurnover) {
