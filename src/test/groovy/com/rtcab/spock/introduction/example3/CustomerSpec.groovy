@@ -6,7 +6,7 @@ import spock.lang.Specification
 /**
  * Example 3:
  *
- * Customer allows to add an order through using the CustomerService
+ * Customer allows to add an order through using the OrderPlacementService
  *
  * - dependencies & mocking
  * - side effect free
@@ -18,12 +18,12 @@ class CustomerSpec extends Specification {
     def "placeOrder adds an order to the customer"() {
 
         given:
-        def customerService = Mock(CustomerService)
+        def orderPlacementService = Mock(OrderPlacementService)
 
-        customerService.placeOrder(_,_) >> {Customer customer, Order order -> customer.orders << order }
+        orderPlacementService.placeOrder(_,_) >> {Customer customer, Order order -> customer.orders << order }
 
         and:
-        Customer sut = new Customer(customerService: customerService)
+        Customer sut = new Customer(customerService: orderPlacementService)
         Order order = new Order()
 
         when:
@@ -36,16 +36,16 @@ class CustomerSpec extends Specification {
     def "placeOrder calls the customerService for doing the heavy lifting"() {
 
         given:
-        def customerService = Mock(CustomerService)
+        def orderPlacementService = Mock(OrderPlacementService)
 
         and:
-        Customer sut = new Customer(customerService: customerService)
+        Customer sut = new Customer(customerService: orderPlacementService)
         Order order = new Order()
 
         when:
         sut.placeOrder(order)
 
         then:
-        1 * customerService.placeOrder(sut, order)
+        1 * orderPlacementService.placeOrder(sut, order)
     }
 }

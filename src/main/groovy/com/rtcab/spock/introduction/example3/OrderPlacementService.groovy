@@ -1,6 +1,6 @@
 package com.rtcab.spock.introduction.example3
 
-class CustomerService {
+class OrderPlacementService {
 
     void placeOrder(Customer customer, Order order) {
         if (someHeavyBusinessRulesSayYes(order)) {

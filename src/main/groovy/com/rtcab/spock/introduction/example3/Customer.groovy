@@ -4,7 +4,7 @@ class Customer {
     String name
     List<Order> orders = []
 
-    CustomerService customerService
+    OrderPlacementService customerService
 
     void placeOrder(Order order) {
         customerService.placeOrder(this, order)

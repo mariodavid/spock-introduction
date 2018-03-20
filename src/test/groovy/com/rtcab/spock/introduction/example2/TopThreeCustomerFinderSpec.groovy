@@ -19,13 +19,13 @@ class TopThreeCustomerFinderSpec extends Specification {
     @Shared
     private Customer moe = customerWithTurnover("Moe", 100)
     @Shared
-    private Customer edna = customerWithTurnover("Edna", 110)
+    private Customer edna = customerWithTurnover("Edna Krabappel", 110)
     @Shared
-    private Customer abu = customerWithTurnover("Abu", 120)
+    private Customer apu = customerWithTurnover("Apu Nahasapeemapetilon", 120)
     @Shared
-    private Customer milhouse = customerWithTurnover("Milhouse", 175)
+    private Customer milhouse = customerWithTurnover("Milhouse van Houten", 175)
     @Shared
-    private Customer poorMario = customerWithTurnover("Mario", 5)
+    private Customer poorMario = customerWithTurnover("Mario David", 5)
 
 
     def 'TopThreeCustomerFinder returns only three customers'() {
@@ -33,7 +33,7 @@ class TopThreeCustomerFinderSpec extends Specification {
         def sut = new TopThreeCustomerFinder()
 
         and:
-        def customers = [moe, edna, abu, poorMario]
+        def customers = [moe, edna, apu, poorMario]
 
         when:
         def topThreeCustomers = sut.findTopCustomers(customers)
@@ -56,9 +56,9 @@ class TopThreeCustomerFinderSpec extends Specification {
 
         where:
         allCustomers                || expectedResult
-        [moe, edna, abu, poorMario] || [abu, edna, moe]
-        [moe, edna, abu, milhouse]  || [milhouse, abu, edna]
-        [moe, edna, abu]            || [abu, edna, moe]
+        [moe, edna, apu, poorMario] || [apu, edna, moe]
+        [moe, edna, apu, milhouse]  || [milhouse, apu, edna]
+        [moe, edna, apu]            || [apu, edna, moe]
         [moe, edna]                 || [edna, moe]
 
     }
