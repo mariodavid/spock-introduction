@@ -117,6 +117,9 @@ To run the tests via Gradle, you can run the following command:
 
 
 
-## Credits
+## Credits & further information
 
 The original copy of the Spock + Gradle + Spring Boot was used from [int128/spock-spring-boot-example](https://github.com/int128/spock-spring-boot-example)
+
+Spock documentation: http://spockframework.org/spock/docs
+
