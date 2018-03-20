@@ -5,6 +5,7 @@
 
 This is a example project which introduces you into the cool work of spock based testing.
 
+The associated slides to this topic can be found here: https://speakerdeck.com/mariodavid/spock-introduction
 
 ### Example 1 - No dependencies, side effect free
 
