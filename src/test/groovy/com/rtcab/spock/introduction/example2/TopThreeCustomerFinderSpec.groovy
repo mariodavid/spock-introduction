@@ -28,7 +28,7 @@ class TopThreeCustomerFinderSpec extends Specification {
     private Customer poorMario = customerWithTurnover("Mario", 5)
 
 
-    def 'TopThreeCustomerFinderSpec returns only three customers'() {
+    def 'TopThreeCustomerFinder returns only three customers'() {
         given:
         def sut = new TopThreeCustomerFinder()
 
