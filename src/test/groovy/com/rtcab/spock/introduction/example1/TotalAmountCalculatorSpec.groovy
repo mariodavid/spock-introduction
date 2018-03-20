@@ -10,7 +10,6 @@ import spock.lang.Specification
  *
  * - no dependencies
  * - side effect free
- * - data driven test
  *
  */
 class TotalAmountCalculatorSpec extends Specification {
