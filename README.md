@@ -106,6 +106,14 @@ This is a example project which introduces you into the cool work of spock based
 ```
 
 
+## run the project
+
+This project is a regular Spring boot application, which uses Gradle as a build system.
+
+To run the tests via Gradle, you can run the following command:
+
+`./gradlew check`
+
 
 
 ## Credits
