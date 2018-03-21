@@ -107,6 +107,19 @@ The associated slides to this topic can be found here: https://speakerdeck.com/m
 ```
 
 
+
+
+## execute the tests
+
+This project is a regular Spring boot application, which uses Gradle as a build system.
+
+To run the tests via Gradle, you can run the following command:
+
+`./gradlew check`
+
+
+
+
 ## Spocks failing test output
 
 One of the things that are pretty neat when working with Spock is the fact, that when an assertion does not match, 
@@ -135,17 +148,6 @@ Actual   :Elizabeth Hoover
 
 	at com.rtcab.spock.introduction.example4.CustomerControllerIntegrationSpec.GET customers returns Elizabeth Hoover as a JSON based customer(CustomerControllerIntegrationSpec.groovy:56)
 ```
-
-
-## run the project
-
-This project is a regular Spring boot application, which uses Gradle as a build system.
-
-To run the tests via Gradle, you can run the following command:
-
-`./gradlew check`
-
-
 
 
 ## Given-When-Then phases in spock
