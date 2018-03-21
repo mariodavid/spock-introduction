@@ -107,6 +107,36 @@ The associated slides to this topic can be found here: https://speakerdeck.com/m
 ```
 
 
+## Spocks failing test output
+
+One of the things that are pretty neat when working with Spock is the fact, that when an assertion does not match, 
+a fairly easy to use output will be created. Here is an example of a failing test (I changed the expected name of example 4 to "Hans Maulwurf").
+
+
+```
+Condition not satisfied:
+
+actualCustomer.body.name == "Hans Maulwurf"
+|              |    |    |
+|              |    |    false
+|              |    |    15 differences (6% similarity)
+|              |    |    (Eliz)a(beth) (Hoove-)r(-)
+|              |    |    (H---)a(ns--) (Maulwu)r(f)
+|              |    Elizabeth Hoover
+|              Elizabeth Hoover (null)
+<200 OK,Elizabeth Hoover (null),{Date=[Wed, 21 Mar 2018 07:32:59 GMT], Content-Type=[application/json;charset=utf-8], Transfer-Encoding=[chunked]}>
+
+Expected :Hans Maulwurf
+
+Actual   :Elizabeth Hoover
+
+ <Click to see difference>
+
+
+	at com.rtcab.spock.introduction.example4.CustomerControllerIntegrationSpec.GET customers returns Elizabeth Hoover as a JSON based customer(CustomerControllerIntegrationSpec.groovy:56)
+```
+
+
 ## run the project
 
 This project is a regular Spring boot application, which uses Gradle as a build system.
@@ -114,6 +144,7 @@ This project is a regular Spring boot application, which uses Gradle as a build 
 To run the tests via Gradle, you can run the following command:
 
 `./gradlew check`
+
 
 
 

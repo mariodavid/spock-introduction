@@ -44,7 +44,7 @@ class CustomerControllerIntegrationSpec extends Specification {
     CustomerService customerService
 
 
-    def "GET customers returns mockedMoe customer"() {
+    def "GET customers returns Elizabeth Hoover as a JSON based customer"() {
 
         given:
         customerService.getCustomer("123") >> new Customer(name: "Elizabeth Hoover")
