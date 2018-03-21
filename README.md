@@ -31,7 +31,7 @@ The associated slides to this topic can be found here: https://speakerdeck.com/m
     }
 ```
 
-### Example 2 - data driven test, No dependencies, side effect free
+### Example 2 - data driven test, No dependencies, side effect free, exception handling in tests
 
 [TopThreeCustomerFinderSpec](https://github.com/mariodavid/spock-introduction/blob/master/src/test/groovy/com/rtcab/spock/introduction/example2/TopThreeCustomerFinderSpec.groovy)
 

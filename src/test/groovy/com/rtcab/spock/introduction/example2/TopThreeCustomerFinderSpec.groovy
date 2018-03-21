@@ -13,6 +13,7 @@ import spock.lang.Unroll
  * - no dependencies
  * - side effect free
  * - data driven test
+ * - exception handling in tests
  *
  */
 class TopThreeCustomerFinderSpec extends Specification {
@@ -26,13 +27,15 @@ class TopThreeCustomerFinderSpec extends Specification {
     private Customer milhouse = customerWithTurnover("Milhouse van Houten", 175)
     @Shared
     private Customer poorMario = customerWithTurnover("Mario David", 5)
+    private sut
 
+
+    void setup() {
+        sut = new TopThreeCustomerFinder()
+    }
 
     def 'TopThreeCustomerFinder returns only three customers'() {
         given:
-        def sut = new TopThreeCustomerFinder()
-
-        and:
         def customers = [moe, edna, apu, poorMario]
 
         when:
@@ -45,9 +48,6 @@ class TopThreeCustomerFinderSpec extends Specification {
 
     @Unroll
     def "TopThreeCustomerFinder takes #expectedResult from #allCustomers"() {
-        given:
-        def sut = new TopThreeCustomerFinder()
-
         when:
         def topThreeCustomers = sut.findTopCustomers(allCustomers)
 
@@ -59,9 +59,17 @@ class TopThreeCustomerFinderSpec extends Specification {
         [moe, edna, apu, poorMario] || [apu, edna, moe]
         [moe, edna, apu, milhouse]  || [milhouse, apu, edna]
         [moe, edna, apu]            || [apu, edna, moe]
-        [moe, edna]                 || [edna, moe]
 
     }
+
+
+    def "TopThreeCustomerFinder throws a BadBusinessException in case there are less than three customers available"() {
+        when:
+        sut.findTopCustomers([apu, milhouse])
+        then:
+        thrown(BadBusinessException)
+    }
+
 
     private Customer customerWithTurnover(String name, int totalTurnover) {
         new Customer(name: name, orders: [order(totalTurnover)])
