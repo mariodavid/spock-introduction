@@ -148,9 +148,30 @@ To run the tests via Gradle, you can run the following command:
 
 
 
-## Credits & further information
+## Given-When-Then phases in spock
+The general overview of the phases in spock look like this:
 
+![Given-When-Then explained](http://spockframework.org/spock/docs/1.1/images/Blocks2Phases.png)
+
+
+
+## Spock vs. JUnit
+
+With the release of JUnit 5, JUnit implemented a lot of the topics Spock covers. There is a detailed
+description on this topic here: http://bmuschko.com/blog/junit5-vs-spock-showdown/
+
+The bottom line is that feature-wise the frameworks become pretty close. The remaining differences are:
+
+* integrated Mocking facilities
+* Groovy (and the associated "ease of readability")
+* Given-When-Then syntax
+
+
+
+## Spock documentation
+
+The official spock documentation is pretty comprehensive: http://spockframework.org/spock/docs
+
+
+## Credits
 The original copy of the Spock + Gradle + Spring Boot was used from [int128/spock-spring-boot-example](https://github.com/int128/spock-spring-boot-example)
-
-Spock documentation: http://spockframework.org/spock/docs
-
