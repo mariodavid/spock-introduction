@@ -177,5 +177,3 @@ The official spock documentation is pretty comprehensive: http://spockframework.
 
 ## Credits
 The original copy of the Spock + Gradle + Spring Boot was used from [int128/spock-spring-boot-example](https://github.com/int128/spock-spring-boot-example)
-
-<img src="https://raw.githubusercontent.com/cuba-platform/cuba-petclinic/master/img/cuba-petclinic-overview.gif" alt="alt text" width="552" height="351">
